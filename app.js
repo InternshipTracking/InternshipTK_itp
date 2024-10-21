@@ -30,6 +30,13 @@ const conn = mysql.createConnection({
     }
 });
 
+
+app.listen(3333, function () {
+    console.log('CORS-enabled web server listening on port 3333'); // แจ้งว่าเซิร์ฟเวอร์กำลังทำงาน
+});
+
+
+
 // ฟังก์ชันตรวจสอบผู้ดูแลระบบ
 function verifyAdmin(req, res, next) {
     const token = req.headers['authorization'] ? req.headers['authorization'].split(' ')[1] : null;
@@ -848,7 +855,3 @@ app.put('/comments/:id', (req, res) => {
 });
 
 
-
-app.listen(3333, function () {
-    console.log('CORS-enabled web server listening on port 3333'); // แจ้งว่าเซิร์ฟเวอร์กำลังทำงาน
-});
