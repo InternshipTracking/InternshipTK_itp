@@ -1,0 +1,55 @@
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f4f8f4; /* Light green background */
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+    border: 2px solid #b2dfdb; /* Subtle green border */
+}
+h2 {
+    color: #2e7d32; /* Dark green heading */
+    margin-bottom: 20px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #c8e6c9; /* Light green border */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #2e7d32; /* Dark green on focus */
+    outline: none;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32; /* Dark green background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+#message {
+    margin-top: 15px;
+    color: #ff3d00; /* Red for error message */
+    font-size: 14px;
+}

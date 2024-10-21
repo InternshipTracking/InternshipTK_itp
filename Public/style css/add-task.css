@@ -1,0 +1,42 @@
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #28a745; /* Green border */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+title {
+    color: #28a745; /* Green title */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #28a745 !important; /* Green title */
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+label {
+    color: #28a745; /* Green labels */
+    font-weight: bold;
+}
+.form-control, .form-select {
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+}
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #218838;
+}

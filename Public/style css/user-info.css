@@ -1,0 +1,40 @@
+
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f4f4f4;
+}
+h1 {
+    color: #333;
+    text-align: center; /* Center the heading */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between table cells */
+}
+th, td {
+    padding: 12px; /* Padding for table cells */
+    border: 1px solid #ddd; /* Border for table cells */
+    text-align: left; /* Left align text in cells */
+}
+th {
+    background-color: #1c4480; /* Header background color */
+    color: white; /* Header text color */
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for rows */
+}
+.insert-info, .edit-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1c4480;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full-width buttons */
+    font-size: 16px; /* Larger font size for readability */
+}
+.insert-info:hover, .edit-info:hover {
+    background-color: #155a8a; /* Button hover effect */
+}

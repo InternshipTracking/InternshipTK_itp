@@ -1,0 +1,94 @@
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: #2e7d32; /* สีเขียวเข้ม */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2e7d32; /* สีเขียวเมื่อโฟกัส */
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.register-button {
+    background-color: #2e7d32; /* สีเขียว */
+    color: white;
+    margin-top: 10px;
+}
+
+.register-button:hover {
+    background-color: #1b5e20; /* สีเขียวเข้มขึ้นเมื่อชี้เมาส์ */
+}
+
+.back-button {
+    background-color: #ccc;
+    color: black;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #bbb;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: green;
+}
+
+.error {
+    color: red;
+}

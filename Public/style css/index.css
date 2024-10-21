@@ -1,0 +1,68 @@
+/* การตกแต่ง body และ container */
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f0f4f1; /* สีเขียวอ่อน */
+    margin: 0;
+
+}
+
+/* ตกแต่ง container-body */
+.container-body {
+    max-width: 900px;
+    margin: 50px auto; /* จัดให้อยู่ตรงกลางทั้งแนวตั้งและแนวนอน */
+    background-color: #ffffff; /* สีพื้นหลังขาว */
+    padding: 30px;
+    border-radius: 12px; /* ขอบโค้งมน */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+}
+
+/* ตกแต่ง h1 */
+h1 {
+    color: #28a745; /* สีเขียวเข้ม */
+    font-size: 48px; /* ขนาดตัวใหญ่ขึ้น */
+    font-weight: bold;
+    margin-bottom: 30px; /* เพิ่มช่องว่างระหว่างหัวข้อกับเนื้อหา */
+    text-transform: uppercase; /* ตัวอักษรใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างระหว่างตัวอักษร */
+}
+
+/* ปุ่ม เพิ่มประกาศ */
+button.btn.btn-primary {
+    background-color: #28a745; /* ปุ่มสีเขียว */
+    border: none;
+    padding: 12px 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสี */
+}
+
+button.btn.btn-primary:hover {
+    background-color: #218838; /* สีเข้มขึ้นเมื่อ hover */
+}
+
+/* ตกแต่งรายการประกาศ */
+#announcement-list .announcement {
+    background-color: #e9f5ec; /* พื้นหลังประกาศสีเขียวอ่อน */
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#announcement-list .announcement p {
+    color: #333; /* สีตัวอักษร */
+    font-size: 18px;
+}
+
+/* ปุ่มความคิดเห็น */
+button.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-top: 20px
+}
+
+button.btn-secondary:hover {
+    background-color: #5a6268;
+}

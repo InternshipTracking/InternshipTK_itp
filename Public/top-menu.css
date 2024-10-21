@@ -1,0 +1,83 @@
+
+.bg-light {
+    background-color: #f0f9f0 !important; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.nav-link {
+    color: #2e7d32 !important;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: #2e7d32 !important; 
+}
+
+
+.navbar-brand img {
+    border-radius: 8px;
+}
+
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%232e7d32' viewBox='0 0 16 16'><path d='M1.5 12a.5.5 0 010-1h13a.5.5 0 010 1h-13zm0-5a.5.5 0 010-1h13a.5.5 0 010 1h-13zm0-5a.5.5 0 010-1h13a.5.5 0 010 1h-13z'/></svg>");
+}
+
+.dropdown-menu {
+    background-color: #eaf4ea; 
+    border-radius: 8px;
+    border: 1px solid #c5e1c5;
+}
+
+.dropdown-item {
+    color: #145214 !important; 
+}
+
+.dropdown-item:hover {
+    background-color: #c5e1c5 !important; 
+}
+
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 18px;
+    color: #2e7d32;
+    padding-bottom: 15px;
+}
+
+.user-info h2 {
+    font-size: 20px !important;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.user-info p {
+    font-size: 18px;
+    color: #145214;
+}
+
+
+.logout a {
+    color: #ff6f61 !important;
+    font-size: 18px;
+    transition: 0.35s;
+}
+
+.logout a:hover {
+    color: white !important; 
+    background: #fd4231 !important;
+}

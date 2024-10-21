@@ -1,0 +1,66 @@
+/* styles.css */
+body {
+    background-color: #f0f4f1; /* สีพื้นหลังนอก */
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #28a745; /* สีเขียวสำหรับหัวข้อ */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* พื้นหลังขาว */
+    border: 2px solid #28a745; /* ขอบสีเขียว */
+    border-radius: 10px; /* มุมโค้ง */
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+
+    max-width: 400px; /* ความกว้างสูงสุด */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #28a745; /* สีเขียวสำหรับ label */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #28a745; /* ขอบสีเขียว */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* สีพื้นหลัง input */
+}
+
+input:focus {
+    border-color: #218838; /* ขอบสีเขียวเข้มเมื่อโฟกัส */
+    outline: none;
+}
+
+button {
+    background-color: #28a745; /* ปุ่มสีเขียว */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838; /* ปุ่มสีเขียวเข้มเมื่อ hover */
+}

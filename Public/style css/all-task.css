@@ -1,0 +1,134 @@
+
+  
+  .container-body h1 {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+  
+  /* ส่วนของ dropdown */
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .filter-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .filter-item label {
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  select {
+    border: 2px solid #28a745;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  /* ปุ่ม */
+  .taskButton_add {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .taskButton_add a {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .taskButton_add a:hover {
+    background-color: #218838;
+  }
+  
+  /* ตาราง */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  }
+  
+  th, td {
+    padding: 15px; /* เพิ่มความสูงของช่อง */
+    border: 1px solid #ccc;
+    text-align: center; /* จัดตรงกลาง */
+  }
+  
+  th {
+    background-color: #28a745;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #e8f5e9; /* สีเขียวอ่อน */
+  }
+  
+  tr:hover {
+    background-color: #c8e6c9; /* สีเขียวเมื่อชี้เมาส์ */
+  }
+  
+  /* ปุ่มเพิ่มเติม และ ลบ */
+  button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* ปุ่มเพิ่มเติม */
+  button:nth-child(1) {
+    background-color: #2e7d32;
+    color: white;
+  }
+  
+  button:nth-child(2) {
+    background-color: #d32f2f;
+    color: white;
+    margin-left: 5px;
+  }
+  
+  /* ปุ่มเพิ่มงาน */
+  #taskButton {
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  
+  #deleteAllButton {
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  
+  #taskButton:hover {
+    background-color: #1b5e20;
+  }
+  
+  #deleteAllButton:hover {
+    background-color: #c62828;
+  }
+  

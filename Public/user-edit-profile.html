@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" /> 
+    <title>แก้ไขข้อมูลผู้ใช้</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- เพิ่ม div สำหรับ navbar -->
+    <div id="navbar"></div>
+
+<div class = "container-body user-edit-profile ">
+    <h1>แก้ไขข้อมูลผู้ใช้</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="nickname">ชื่อเล่น:</label>
+            <input type="text" id="nickname" required />
+        </div>
+        <div class="form-group">
+            <label for="fullName">ชื่อเต็ม:</label>
+            <input type="text" id="fullName" required />
+        </div>
+        <div class="form-group">
+            <label for="email">อีเมล:</label>
+            <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">หมายเลขโทรศัพท์:</label>
+            <input type="text" id="phoneNumber" required />
+        </div>
+        <div class="form-group">
+            <label for="university">มหาวิทยาลัย:</label>
+            <input type="text" id="university" required />
+        </div>
+        <div class="form-group">
+            <label for="faculty">คณะ:</label>
+            <input type="text" id="faculty" required />
+        </div>
+        <div class="form-group">
+            <label for="major">สาขาวิชา:</label>
+            <input type="text" id="major" required />
+        </div>
+        <div class="form-group">
+            <label for="studentId">รหัสนักศึกษา:</label>
+            <input type="text" id="studentId" required />
+        </div>
+        <div class="form-group">
+            <label for="internshipEndDate">วันสิ้นสุดการฝึกงาน:</label>
+            <input type="date" id="internshipEndDate" required />
+        </div>
+        <button id="saveInfoButton" class="save-info">บันทึกการเปลี่ยนแปลง</button>
+    </div>
+</div>
+
+<script src="navbar.js"></script>
+    <script>
+
+        fetch('top-menu.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id'); // ดึง id จาก URL
+
+        // ฟังก์ชันดึงข้อมูลผู้ใช้
+        fetch(`${window.BASE_URL}/user-info/${userId}`)
+            .then(response => {
+                if (!response.ok) {
+                    alert('ไม่สามารถดึงข้อมูลผู้ใช้ได้');
+                    return;
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    document.getElementById('nickname').value = data.nickname;
+                    document.getElementById('fullName').value = data.full_name;
+                    document.getElementById('email').value = data.email;
+                    document.getElementById('phoneNumber').value = data.phone_number;
+                    document.getElementById('university').value = data.university;
+                    document.getElementById('faculty').value = data.faculty;
+                    document.getElementById('major').value = data.major;
+                    document.getElementById('studentId').value = data.student_id;
+                    document.getElementById('internshipEndDate').value = data.internship_end_date;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+        // ฟังก์ชันบันทึกการเปลี่ยนแปลง
+        document.getElementById('saveInfoButton').addEventListener('click', function() {
+            const updatedUserInfo = {
+                nickname: document.getElementById('nickname').value,
+                full_name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phoneNumber').value,
+                university: document.getElementById('university').value,
+                faculty: document.getElementById('faculty').value,
+                major: document.getElementById('major').value,
+                student_id: document.getElementById('studentId').value,
+                internship_end_date: document.getElementById('internshipEndDate').value
+            };
+
+            // ส่ง PUT request เพื่ออัปเดตข้อมูลผู้ใช้
+            fetch(`${window.BASE_URL}/update-user-info/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedUserInfo)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    alert('ไม่สามารถอัปเดตข้อมูลผู้ใช้ได้');
+                    return;
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(data.status || 'ข้อมูลผู้ใช้อัปเดตเรียบร้อยแล้ว!');
+                window.location.href = `user-info.html?id=${userId}`; // Redirect to user info page
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

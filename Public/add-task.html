@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>เพิ่มงาน</title>
+  </head>
+  <body>
+    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="navbar"></div>
+
+    <div class="container-body add-task">
+      <h1>เพิ่มงาน</h1>
+      <form id="addTaskForm">
+        <!-- ชื่อเว็บไซต์ และ เว็บเดโม่ -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="websiteName" class="form-label">ชื่อเว็บไซต์</label>
+            <input type="text" class="form-control" id="websiteName" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="demo" class="form-label">เว็บเดโม่</label>
+            <input type="text" class="form-control" id="demo" required />
+          </div>
+        </div>
+
+        <!-- Username และ Password -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="taskUsername" class="form-label">Username</label>
+            <input type="text" class="form-control" id="taskUsername" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- นักศึกษา, ผู้ดูแล และ สถานะงาน -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="internship" class="form-label">นักศึกษา</label>
+            <select class="form-select" id="internship" required></select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="staff" class="form-label">ผู้ดูแล</label>
+            <select class="form-select" id="staff" required></select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="status" class="form-label">สถานะงาน</label>
+            <select class="form-select" id="status" required>
+              <option value="รีไซต์">รีไซต์</option>
+              <option value="ใส่ลายน้ำ">ใส่ลายน้ำ</option>
+              <option value="แก้ไขข้อมูล">แก้ไขข้อมูล</option>
+              <option value="เพิ่มข้อมูล">เพิ่มข้อมูล</option>
+              <option value="เก็บข้อมูล">เก็บข้อมูล</option>
+              <option value="ลง Admin">ลง Admin</option>
+              <option value="ตรวจสอบคำผิด">ตรวจสอบคำผิด</option>
+              <option value="แก้ไข Admin">แก้ไข Admin</option>
+              <option value="ลงสินค้า">ลงสินค้า</option>
+              <option value="ลงภาษา">ลงภาษา</option>
+              <option value="Dicut">Dicut</option>
+              <option value="Check Device">Check Device</option>
+              <option value="ลงข้อมูล">ลงข้อมูล</option>
+              <option value="ออกแบบ Pop up">ออกแบบ Pop up</option>
+              <option value="Shopee Shop">Shopee Shop</option>
+              <option value="งาน Design">งาน Design</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Linkpool -->
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="linkpool" class="form-label">Linkpool</label>
+            <input type="text" class="form-control" id="linkpool" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">เพิ่มงาน</button>
+      </form>
+    </div>
+
+    <script>
+      // ดึงข้อมูล nickname ของ users สำหรับ dropdown internship
+      fetch(`${window.BASE_URL}/get-users-nickname`)
+        .then((response) => response.json())
+        .then((data) => {
+          const internshipSelect = document.getElementById("internship");
+          data.forEach((user) => {
+            const option = document.createElement("option");
+            option.value = user.nickname;
+            option.textContent = user.nickname;
+            internshipSelect.appendChild(option);
+          });
+        });
+
+      // ดึงข้อมูล nickname ของ admins สำหรับ dropdown staff
+      fetch(`${window.BASE_URL}/get-admins-nickname`)
+        .then((response) => response.json())
+        .then((data) => {
+          const staffSelect = document.getElementById("staff");
+          data.forEach((admin) => {
+            const option = document.createElement("option");
+            option.value = admin.nickname;
+            option.textContent = admin.nickname;
+            staffSelect.appendChild(option);
+          });
+        });
+
+      // ฟังก์ชันสำหรับการส่งข้อมูลในฟอร์ม
+      document.getElementById("addTaskForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        window.location.href = `all-task.html`;
+        // ตรวจสอบข้อมูลแต่ละช่อง
+        const websiteName = document.getElementById("websiteName").value;
+        const demo = document.getElementById("demo").value;
+        const taskUsername = document.getElementById("taskUsername").value; // ใช้ id ใหม่
+        const password = document.getElementById("password").value;
+        const internship = document.getElementById("internship").value;
+        const status = document.getElementById("status").value;
+        const staff = document.getElementById("staff").value;
+        const linkpool = document.getElementById("linkpool").value;
+
+        let missingFields = [];
+
+        // ตรวจสอบช่องที่ไม่ได้กรอก และเพิ่มเข้าไปใน missingFields
+        if (!websiteName) missingFields.push("ชื่อเว็บไซต์");
+        if (!demo) missingFields.push("เว็บเดโม่");
+        if (!taskUsername) missingFields.push("Username"); // ตรวจสอบ id ใหม่
+        if (!password) missingFields.push("Password");
+        if (!internship) missingFields.push("นักศึกษา");
+        if (!status) missingFields.push("สถานะงาน");
+        if (!staff) missingFields.push("ผู้ดูแล");
+        if (!linkpool) missingFields.push("Linkpool");
+
+        if (missingFields.length > 0) {
+          alert('กรุณากรอกข้อมูลในช่อง: ' + missingFields.join(', '));
+          return;
+        }
+
+        // ส่งข้อมูลไปที่ API
+        const taskData = {
+          website_name: websiteName,
+          demo: demo,
+          username: taskUsername, // ส่งค่า username จาก id ใหม่
+          password: password,
+          internship: internship,
+          status: status,
+          staff: staff,
+          linkpool: linkpool,
+        };
+
+        fetch(`${window.BASE_URL}/add-task`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(taskData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+
+            alert("เพิ่มงานสำเร็จ");
+          
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("ไม่สามารถเพิ่มงานได้");
+          });
+      });
+    </script>
+  </body>
+</html>

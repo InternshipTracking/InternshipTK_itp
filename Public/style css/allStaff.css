@@ -1,0 +1,61 @@
+/* การตั้งค่าทั่วไปสำหรับ body */
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f0f4f1; /* พื้นหลังสีเขียวอ่อน */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* การตกแต่ง h1 */
+h1 {
+    color: #28a745; /* สีเขียว */
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* การตกแต่งตาราง */
+table {
+    width: 100%;
+    max-width: 800px; /* ความกว้างสูงสุด */
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเพื่อความโดดเด่น */
+    background-color: white; /* พื้นหลังสีขาว */
+}
+
+/* การตกแต่งหัวข้อในตาราง */
+th {
+    background-color: #28a745; /* พื้นหลังหัวตารางสีเขียว */
+    color: white; /* ข้อความสีขาว */
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* การตกแต่งเซลล์ในตาราง */
+td {
+    padding: 12px;
+    border: 1px solid #ddd; /* ขอบบางๆ สีเทาอ่อน */
+    text-align: left;
+    color: #333; /* สีตัวอักษร */
+}
+
+/* เพิ่มการเน้นที่แถวเมื่อนำเมาส์ไปวาง */
+tr:hover {
+    background-color: #f2f2f2; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
+
+/* การปรับแต่งลิงก์อีเมล */
+a {
+    color: #28a745; /* สีเขียวสำหรับลิงก์ */
+    text-decoration: none; /* ไม่ขีดเส้นใต้ */
+}
+
+a:hover {
+    text-decoration: underline; /* ขีดเส้นใต้เมื่อ hover */
+}

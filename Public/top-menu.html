@@ -1,0 +1,65 @@
+<!-- navbar.html -->
+ <header>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="top-menu.css" /> 
+ </header>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="http://itp1.itopfile.com/ImageServer/z_itp_17052024aruc/0/0/logoz-z672635794447.png" alt="" width="100%" height="50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="profileButton" class="nav-link" href="#">ข้อมูลส่วนตัว</a>
+                </li>
+                <li class="nav-item">
+                    <a id="taskButtonPage" class="nav-link" href="#" style="display: none;">ดูงาน</a>
+                </li>
+                <li class="nav-item">
+                    <a id="taskButtonPageUser" class="nav-link" href="#" style="display: none;">ดูงาน</a>
+                </li>
+                <li class="nav-item">
+                    <a id="staffButton" class="nav-link" style="display: none;" href="allStaff.html">ข้อมูลพี่เลี้ยง</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: none;">
+                        จัดการสมาชิก
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a id="addMemberButton" class="nav-link" style="display: none;" href="#">เพิ่มสมาชิก</a>
+                        </li>
+                        
+                        <li class="nav-item"></li>
+                            <a id="allAccButton" class="nav-link" style="display: none;" href="#">สมาชิกทั้งหมด</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a id="studentButton" class="nav-link" style="display: none;" href="allUser.html">ข้อมูลนักศึกษา</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li class="nav-item"></li>
+                    <a class="nav-link" id="btnDashboard" href="#" style="display: none;">แดชบอร์ด</a>
+                    <a class="nav-link" id="btnDashboardUser" href="#" style="display: none;">แดชบอร์ด</a>
+                </li>
+            </ul>
+            <!-- User info section -->
+            <div class="user-info ms-auto" style="text-align: right; display: flex; align-items: center; gap: 20px; flex-direction:row;">
+                <div>
+                    <h2 style="margin: 0; font-size: 22px; font-weight: bold;">สวัสดี, <span id="username2">User</span>!</h2>
+                    <p style="margin: 0; font-size: 18px;">บทบาท : <span id="role">Role</span></p>
+                </div>
+                <div class="logout" style="align-items: center;">
+                    <a id="Logout" style="font-size: 18px;" class="nav-link" href="#" onclick="logout()">ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

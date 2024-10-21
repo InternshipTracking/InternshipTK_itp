@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />  
+    <title>Login Page</title>
+    <style>
+    
+    </style>
+</head>
+<body style="overflow: hidden;">
+
+    <!-- รหัสผู้ใช้หลัก 
+    User : Admin
+    Pass : Admin -->
+
+    <!-- How To Run Website?
+    เปิด Xampp หรือแอป DB อะไรก็ได้
+    Import DB ที่ได้ให้ไว้ลงไป
+    พิมใน Terminal nodemon app.js
+    แล้วก็ Open with live server ได้เลยย -->
+
+    <div class="container-body login">
+    <div class="login-container">
+        <h2>Internship Tracking</h2>
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+        <input type="password" id="password" placeholder="รหัสผ่าน" required>
+        <button onclick="login()">ล็อกอิน</button>
+        <p id="message"></p>
+    </div>
+</div>
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // ดึงข้อมูลจาก API
+            fetch(`${window.BASE_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    // เก็บ token ใน localStorage
+                    localStorage.setItem('token', data.token);
+                    document.getElementById('message').textContent = 'เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ' + data.username;
+                    
+                    // ตัวอย่างการนำ token ไปใช้ใน API ต่อไป
+                    setTimeout(() => {
+                        window.location.href = 'index.html'; // เปลี่ยนหน้าไปยังหน้าหลัก
+                    }, 1500);
+                } else {
+                    document.getElementById('message').textContent = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                }
+            })
+            .catch(error => {
+                console.error('เกิดข้อผิดพลาด:', error);
+                document.getElementById('message').textContent = 'เกิดข้อผิดพลาดในการเข้าสู่ระบบ';
+            });
+        }
+    </script>
+<script src="navbar.js"></script>
+</body>
+</html>

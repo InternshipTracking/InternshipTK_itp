@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" /> 
+    <title>User Info</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- เพิ่ม div สำหรับ navbar -->
+    <div id="navbar"></div>
+
+<div class = "container-body user-infor">
+    <h1>ข้อมูลนักศึกษา</h1>
+    <div class="user-infor-block">
+        <table>
+            <tr>
+                <th>หัวข้อ</th>
+                <th>รายละเอียด</th>
+            </tr>
+            <tr>
+                <td>ชื่อเล่น</td>
+                <td><span id="nickname"></span></td>
+            </tr>
+            <tr>
+                <td>ชื่อ-นามสกุล</td>
+                <td><span id="fullName"></span></td>
+            </tr>
+            <tr>
+                <td>อีเมล</td>
+                <td><span id="email"></span></td>
+            </tr>
+            <tr>
+                <td>เบอร์โทรศัทพ์</td>
+                <td><span id="phoneNumber"></span></td>
+            </tr>
+            <tr>
+                <td>มหาวิทยาลัย</td>
+                <td><span id="university"></span></td>
+            </tr>
+            <tr>
+                <td>คณะ</td>
+                <td><span id="faculty"></span></td>
+            </tr>
+            <tr>
+                <td>สาขา</td>
+                <td><span id="major"></span></td>
+            </tr>
+            <tr>
+                <td>รหัสนักศึกษา</td>
+                <td><span id="studentId"></span></td>
+            </tr>
+            <tr>
+                <td>วันที่ฝึกงานเสร็จ</td>
+                <td><span id="internshipEndDate"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <button id="insertInfoButton" class="insert-info" style="display: none;">เพิ่มข้อมูลนักศึกษา</button>
+    <button id="editInfoButton" class="edit-info" style="display: none;">แก้ไขข้อมูลนักศึกษา</button>
+</div>
+
+<script src="navbar.js"></script>
+    <script>
+
+        fetch('top-menu.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id'); // Get ID from URL
+
+        // Function to fetch user information
+        fetch(`${window.BASE_URL}/user-info/${userId}`)
+            .then(response => {
+                if (!response.ok) {
+                    document.getElementById('insertInfoButton').style.display = 'block'; // Show Insert Info button
+                    return;
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    document.getElementById('nickname').textContent = data.nickname;
+                    document.getElementById('fullName').textContent = data.full_name;
+                    document.getElementById('email').textContent = data.email;
+                    document.getElementById('phoneNumber').textContent = data.phone_number;
+                    document.getElementById('university').textContent = data.university;
+                    document.getElementById('faculty').textContent = data.faculty;
+                    document.getElementById('major').textContent = data.major;
+                    document.getElementById('studentId').textContent = data.student_id;
+                    document.getElementById('internshipEndDate').textContent = formatDateToThai(data.internship_end_date);
+
+                    // Show Edit Info button if data is available
+                    document.getElementById('editInfoButton').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user info:', error);
+                alert('Unable to fetch user information.');
+            });
+
+        // Function to format date to Thai style
+        function formatDateToThai(dateString) {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) {
+                return 'วันที่ไม่ถูกต้อง'; // Display error message for invalid date
+            }
+
+            const monthNames = [
+                'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 
+                'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 
+                'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+            ];
+
+            const day = date.getDate();
+            const month = monthNames[date.getMonth()];
+            const year = date.getFullYear() + 543; // Convert to Thai year
+
+            return `${day} ${month} ${year}`;
+        }
+
+        // Link to add user info page
+        document.getElementById('insertInfoButton').addEventListener('click', function() {
+            window.location.href = `add-info-user.html?id=${userId}`;
+        });
+
+        // Link to edit user info page
+        document.getElementById('editInfoButton').addEventListener('click', function() {
+            window.location.href = `user-edit-profile.html?id=${userId}`;
+        });
+    </script>
+</body>
+</html>

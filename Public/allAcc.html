@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>สมาชิกทั้งหมด</title>
+ 
+
+    <script>
+        const token = localStorage.getItem("token");
+
+
+
+        // ฟังก์ชันโหลดบัญชีจาก API
+        async function loadAccounts() {
+            try {
+                const response = await fetch(`${window.BASE_URL}/accounts-all`);
+                const accounts = await response.json();
+                const tableBody = document.getElementById('accountTableBody');
+                tableBody.innerHTML = '';  // ล้างตารางก่อน
+
+                if (accounts.length > 0) {
+                    accounts.forEach(account => {
+                        // ตรวจสอบ role เพื่อเปลี่ยนแปลงการแสดงผล
+                        const roleDisplay = account.role === 'admin' ? 'Staff' : 'Internship';
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${account.username}</td>
+                            <td>${account.password}</td>
+                            <td>${roleDisplay}</td> 
+                            <td>
+                                <a href="editAcc.html?id=${account.id}" class="btn-primary">แก้ไขบัญชี</a>
+                                <button class="btn btn-delete" onclick="deleteAccount(${account.id})">ลบบัญชี</button>
+                            </td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    // ถ้าไม่มีบัญชี แสดงข้อความว่าไม่มีบัญชี
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td colspan="4">ไม่มีบัญชีที่จะแสดง</td>`;
+                    tableBody.appendChild(row);
+                }
+            } catch (error) {
+                alert('เกิดข้อผิดพลาดในการดึงข้อมูลบัญชี');
+            }
+        }
+
+        // ฟังก์ชันลบบัญชี
+        async function deleteAccount(accountId) {
+            if (accountId === 1) {
+                alert('ไม่สามารถลบ Account นี้ได้');
+                return;
+            }
+
+            if (confirm('คุณต้องการลบบัญชีนี้จริงหรือไม่?')) {
+                try {
+                    const response = await fetch(`${window.BASE_URL}/delete-account/${accountId}`, {
+                        method: 'DELETE',
+                    });
+                    const result = await response.json();
+                    if (result.message) {
+                        alert(result.message);
+                        loadAccounts(); // โหลดข้อมูลใหม่หลังจากลบ
+                        localStorage.clear();
+                    } else if (result.error) {
+                        alert(result.error);
+                    }
+                } catch (error) {
+                    alert('เกิดข้อผิดพลาดในการลบบัญชี');
+                }
+            }
+        }
+
+        // เรียกใช้ฟังก์ชันเมื่อหน้าโหลดเสร็จ
+        window.onload = loadAccounts;
+    </script>
+</head>
+<body>
+    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- เพิ่ม div สำหรับ navbar -->
+    <div id="navbar"></div>
+    
+    <div class ="container-body allAcc">
+    <h1>สมาชิกทั้งหมด</h1>
+    <table>
+        <thead> 
+            <tr>
+                <th>ชื่อผู้ใช้</th>
+                <th>รหัสผ่าน</th>
+                <th>บทบาท</th>
+                <th>จัดการบัญชี</th>
+            </tr>
+        </thead>
+        <tbody id="accountTableBody">
+            <!-- บัญชีจะถูกดึงมาแสดงที่นี่ -->
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

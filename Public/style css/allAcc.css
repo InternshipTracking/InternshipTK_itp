@@ -1,0 +1,62 @@
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #388e3c; /* Dark green for heading */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #a5d6a7; /* Light green for table header */
+    color: white;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f8e9; /* Subtle green hover effect */
+}
+
+.btn {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50; /* Green buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #388e3c;
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red for delete button */
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+

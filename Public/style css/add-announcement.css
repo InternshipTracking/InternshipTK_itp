@@ -1,0 +1,65 @@
+/* add-announcement.css */
+body {
+    font-family: "LINE Seed Sans TH","LINE Seed Sans EN";
+    background-color: #f0f4f1; /* สีพื้นหลังนอก container */
+}
+
+/* Container สำหรับฟอร์ม */
+.container {
+    max-width: 600px;
+    margin: 50px auto; /* จัดให้อยู่กึ่งกลางหน้า */
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    padding: 30px;
+    border-radius: 12px; /* ขอบมน */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบาๆ */
+}
+
+/* หัวข้อ h1 */
+h1 {
+    color: #28a745; /* สีเขียว */
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center; /* จัดให้อยู่กึ่งกลาง */
+    margin-bottom: 30px; /* เพิ่มช่องว่างระหว่างหัวข้อกับฟอร์ม */
+}
+
+/* ตกแต่ง Label */
+.form-label {
+    font-size: 18px;
+    color: #333; /* สีตัวหนังสือ */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ตกแต่ง Textarea */
+textarea.form-control {
+    border: 2px solid #28a745; /* ขอบเขียว */
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* สีพื้นหลังอ่อน */
+    transition: border-color 0.3s ease;
+}
+
+textarea.form-control:focus {
+    border-color: #218838; /* ขอบเข้มขึ้นเมื่อโฟกัส */
+    outline: none;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.2); /* เงาเมื่อโฟกัส */
+}
+
+/* ปุ่มส่งฟอร์ม */
+button.btn.btn-primary {
+    background-color: #28a745; /* ปุ่มสีเขียว */
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 20%; /* ปุ่มเต็มความกว้าง */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn.btn-primary:hover {
+    background-color: #218838; /* สีเข้มขึ้นเมื่อ hover */
+}

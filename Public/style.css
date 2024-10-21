@@ -1,0 +1,1502 @@
+body {
+  font-family: "LINE Seed Sans TH", "LINE Seed Sans EN" !important;
+  background-color: #f0f4f8;
+  /* สีพื้นหลังขาวอมฟ้าอ่อน */
+  margin: 0px !important;
+  transition: 0.35s;
+
+}
+
+.container-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  /* สีพื้นหลังขาว */
+  padding: 40px 90px 60px 90px;
+  /*box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  เงาเบาๆ */
+  background-image: url(http://itp1.itopfile.com/ImageServer/z_itp_05082024irdx/0/0/PremiumPhotoSimplewhitebackgroundwithsmoothlinesinlightcolorsz-z1113034694842.png);
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures the container takes the full height of the viewport */
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures navbar stays on top of other content */
+  background-color: white; /* Set background color to avoid transparency */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+}
+
+
+h1 {
+  color: #28a745 !important;
+  text-align: center !important;
+  margin-bottom: 30px !important;
+  font-size: 40px !important;
+  font-weight: 600 !important;
+}
+
+#tr:hover {
+  background-color: #f2f2f2;
+}
+
+ul.dropdown-menu.show a {
+  transition: 0.35s;
+}
+
+li.nav-item.dropdown ul.dropdown-menu.show a:hover {
+  background: #9ee19e;
+}
+
+
+
+/*add-announcement start*/
+
+
+
+/*add-announcement end*/
+
+/*add-info-admin start*/
+
+/*.add-info-admin h1 {
+  color: #28a745; 
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}*/
+
+.add-info-admin form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  /* มุมโค้ง */
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* เงา */
+  max-width: 600px;
+  width: 100%;
+}
+
+.add-info-admin .form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  color: #28a745;
+  /* สีเขียวสำหรับ label */
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-info-admin input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #28a745;
+  /* ขอบสีเขียว */
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  /* สีพื้นหลัง input */
+}
+
+.add-info-admin input:focus {
+  border-color: #218838;
+  /* ขอบสีเขียวเข้มเมื่อโฟกัส */
+  outline: none;
+}
+
+.block-button {
+  display: flex;
+  justify-content: center;
+}
+
+.add-info-admin button {
+  background-color: #28a745;
+  /* ปุ่มสีเขียว */
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+  margin: 20px 0px;
+  font-size: 16px;
+}
+
+.add-info-admin button:hover {
+  background-color: #218838;
+  /* ปุ่มสีเขียวเข้มเมื่อ hover */
+}
+
+
+/*add-info-admin end*/
+
+/*add-info-user start*/
+
+/* การตกแต่ง h1 */
+/*.add-info-user h1 {
+  text-align: center;
+  color: #28a745; 
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}*/
+.container-body.add-user-info {
+  background-color: #fff; /* สีขาวสำหรับพื้นหลังของคอนเทนเนอร์ */
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 128, 0, 0.2); /* เงาสีเขียวอ่อน */
+}
+/* ตกแต่งฟอร์ม */
+.add-info-user form {
+  background-color: #ffffff;
+  /* พื้นหลังขาว */
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #28a745;
+  /* ขอบสีเขียว */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* เงา */
+}
+
+/* การจัดรูปแบบฟอร์ม input และป้าย label */
+.add-info-user .form-group {
+  margin-bottom: 15px;
+}
+
+.add-info-user label {
+  display: block;
+  margin-bottom: 5px;
+  color: #28a745;
+  /* สีเขียวสำหรับ label */
+  font-weight: bold;
+}
+
+.add-info-user input[type="text"],
+.add-info-user input[type="email"],
+.add-info-user input[type="tel"],
+.add-info-user input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-info-user input[type="text"]:focus,
+.add-info-user input[type="email"]:focus,
+.add-info-user input[type="tel"]:focus,
+.add-info-user input[type="date"]:focus {
+  border-color: #28a745;
+  /* ขอบสีเขียวเมื่อโฟกัส */
+  outline: none;
+}
+
+/* ตกแต่งปุ่ม */
+button[type="submit"] {
+  background-color: #28a745;
+  /* ปุ่มสีเขียว */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+  /* สีเขียวเข้มเมื่อ hover */
+}
+
+
+/*add-info-user end*/
+
+/*add-task start*/
+
+.add-task title {
+  color: #28a745;
+  /* Green title */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/*.add-task h1 {
+color: #28a745 !important; 
+text-align: center;
+margin-bottom: 30px;
+font-weight: 600;
+}*/
+.add-task label {
+  color: #28a745;
+  /* Green labels */
+  font-weight: bold;
+}
+
+.add-task .form-control,
+.form-select {
+  border: 2px solid #28a745 !important;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+}
+
+.add-task .btn-primary {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.add-task .btn-primary:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+/*add-task end*/
+
+/*admin-edit-profile start*/
+
+/*.admin-edit-profile h1 {
+color: #388e3c; 
+margin-bottom: 20px;
+}*/
+
+.admin-edit-profile .form-container {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* เงา */
+  width: 100%;
+  max-width: 500px;
+  /* จำกัดความกว้างของฟอร์ม */
+}
+
+.admin-edit-profile .form-group {
+  margin-bottom: 15px;
+}
+
+.admin-edit-profile label {
+  display: block;
+  font-size: 18px;
+  color: #2e7d32;
+  /* สีเขียวเข้ม */
+  margin-bottom: 5px;
+}
+
+.admin-edit-profile input[type="text"],
+.admin-edit-profile input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #28a745 !important;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.admin-edit-profile button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #2e7d32;
+  /* สีเขียวเข้ม */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admin-edit-profile button[type="submit"]:hover {
+  background-color: #1b5e20;
+  /* สีเขียวเข้มกว่าเมื่อชี้เมาส์ */
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+  }
+}
+
+/*admin-edit-profile end*/
+
+/*admin-info start*/
+
+/* Container Body */
+
+/* Heading */
+/*.container-body.\.admin-info h1 {
+color: #2e7d32;
+font-weight: bold;
+text-align: center;
+margin-bottom: 30px;
+}*/
+
+.admin-info {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Table Styling */
+.admin-info table {
+  width: 100%;
+  border-collapse: separate;
+  /* ทำให้ขอบแยกออกจากกัน */
+  border-spacing: 0;
+  /* ช่องว่างระหว่างเซลล์ */
+  border-radius: 10px !important;
+  /* ขอบมน */
+  overflow: hidden;
+  /* ให้ขอบมนแสดงผลถูกต้อง */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* เงา */
+}
+
+.admin-info th,
+.admin-info td {
+  padding: 15px;
+  border: 1px solid #c8e6c9;
+  background: white;
+  text-align: left;
+}
+
+.admin-info th {
+  background-color: #28a745;
+  /* สีเขียวอ่อน */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.admin-info td {
+  color: #388e3c;
+  /* สีเขียวเข้ม */
+}
+
+/* Buttons */
+button.insert-info,
+button.edit-profile {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #4caf50;
+  /* สีเขียวสด */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+button.insert-info:hover,
+button.edit-profile:hover {
+  background-color: #388e3c;
+  /* สีเขียวเข้มเมื่อ hover */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .container-body {
+    padding: 10px;
+  }
+
+  .admin-info table,
+  .admin-info th,
+  .admin-info td {
+    font-size: 14px;
+  }
+
+  button.insert-info,
+  button.edit-profile {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
+/*admin-info end*/
+
+/*all-task start*/
+
+
+/* Heading for announcements */
+
+/*.all-task h1 {
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}*/
+
+div#announcements {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* ส่วนของ dropdown */
+.all-task .filter-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.all-task .filter-item {
+  display: flex;
+  align-items: center;
+}
+
+.all-task .filter-item label {
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+
+.all-task select {
+  border: 2px solid #28a745;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* ปุ่ม */
+.all-task .taskButton_add {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button#add-announcement {
+  background: green;
+}
+
+button.btn.btn-info.mt-2 {
+  background: mediumseagreen;
+  color: white;
+}
+
+.all-task .taskButton_add a {
+  background-color: #28a745;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.all-task .taskButton_add a:hover {
+  background-color: #218838;
+}
+
+
+/*********/
+/* ตาราง */
+/*********/
+
+.all-task table {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  border-collapse: collapse;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงา */
+}
+
+.all-task th,
+td {
+  padding: 15px;
+  /* เพิ่มความสูงของช่อง */
+  text-align: center;
+  /* จัดตรงกลาง */
+}
+
+.all-task th {
+  background-color: #28a745;
+  color: white;
+  text-transform: uppercase;
+}
+
+.all-task thead th:first-child {
+  border-top-left-radius: 10px;
+  /* Top-left corner */
+}
+
+.all-task thead th:last-child {
+  border-top-right-radius: 10px;
+  /* Top-right corner */
+}
+
+.all-task tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+  /* Bottom-left corner */
+}
+
+.all-task tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+  /* Bottom-right corner */
+}
+
+.all-task tr:nth-child(even) {
+  background-color: #e8f5e9;
+  /* สีเขียวอ่อน */
+}
+
+.all-task tr:hover {
+  background-color: #c8e6c9;
+  /* สีเขียวเมื่อชี้เมาส์ */
+}
+
+/* ปุ่มเพิ่มเติม และ ลบ */
+.all-task button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.all-task button:hover {
+  opacity: 0.9;
+}
+
+/* ปุ่มเพิ่มเติม */
+.all-task button:nth-child(1) {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.all-task button:nth-child(2) {
+  background-color: #d32f2f;
+  color: white;
+  margin-left: 5px;
+}
+
+/* ปุ่มเพิ่มงาน */
+.all-task #taskButton {
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.all-task #deleteAllButton {
+  background-color: #ff0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.all-task #taskButton:hover {
+  background-color: #1b5e20;
+}
+
+.all-task #deleteAllButton:hover {
+  background-color: #c62828;
+}
+
+
+/*all-task end*/
+
+/*allAcc start*/
+
+/*.allAcc h1 {
+text-align: center;
+color: #388e3c; 
+margin-bottom: 20px;
+}*/
+
+.allAcc table {
+  width: 100%;
+  border-collapse: collapse;
+  /* ทำให้เส้นขอบตารางเป็นหนึ่งเดียว */
+  background-color: #ffffff;
+  /* พื้นหลังตารางสีขาว */
+  border-radius: 8px;
+  /* มุมโค้ง */
+  overflow: hidden;
+  /* ทำให้มุมของตารางโค้ง */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงาให้ตาราง */
+}
+
+.allAcc th,
+.allAcc td {
+  padding: 12px 60px;
+  border-bottom: 1px solid #dddddd;
+  /* เส้นขอบสีเทาอ่อน */
+  text-align: center;
+}
+
+.allAcc th {
+  background-color: #28a745;
+  /* พื้นหลังสีเขียวสำหรับหัวข้อ */
+  color: white;
+  /* สีตัวอักษรขาว */
+  font-weight: 600;
+}
+
+.allAcc td {
+  border-bottom: 1px solid #ddd;
+}
+
+.allAcc tr:hover {
+  background-color: #f1f8e9;
+  /* Subtle green hover effect */
+}
+
+.allAcc a.btn-primary {
+  padding: 5px 20px 9px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.allAcc .btn {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  /* Green buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.allAcc .btn:hover {
+  background-color: #388e3c;
+}
+
+.allAcc .btn-delete {
+  background-color: #f44336;
+  /* Red for delete button */
+}
+
+.allAcc .btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+
+/*allAcc end*/
+
+.allStaff table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px; /* ขอบมน */
+  overflow: hidden; /* เพื่อให้ขอบมนแสดงผลกับเนื้อหาในตาราง */
+}
+
+/* การตกแต่งหัวข้อในตาราง */
+.allStaff th {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+
+}
+
+/* การตกแต่งเซลล์ในตาราง */
+.allStaff td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  color: #333;
+}
+
+/* เพิ่มการเน้นที่แถวเมื่อนำเมาส์ไปวาง */
+.allStaff tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* การปรับแต่งลิงก์อีเมล */
+.allStaff a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.allStaff a:hover {
+  text-decoration: underline;
+}
+
+/*allStaff end*/
+
+/*allUser start*/
+
+.allUser .allUser {
+  background-color: #ffffff;
+  /* พื้นหลังสีขาว */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* เงาเบาๆ */
+  max-width: 800px;
+  margin: auto;
+}
+
+/*.allUser h1 {
+color: #2e7d32; 
+text-align: center;
+margin-bottom: 30px;
+}*/
+
+.allUser .user-card {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  /* พื้นหลังของการ์ดเป็นสีขาวครีม */
+  max-width: 800px;
+  width: 100%;
+}
+
+.allUser .user-card h5 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: #2e7d32;
+  /* สีเขียวเข้ม */
+}
+
+.allUser .user-card p {
+  margin: 5px 0;
+  color: #555555;
+  /* สีตัวหนังสือเป็นสีเทาเข้ม */
+}
+
+.allUser .user-card a {
+  color: #2e7d32;
+  /* สีลิงก์เป็นสีเขียวเข้ม */
+}
+
+.allUser .user-card a:hover {
+  text-decoration: underline;
+}
+
+/*allUser end*/
+
+/*dashBoard start*/
+
+/*.dashBoard h1 {
+color: #2e7d32; 
+}*/
+
+.dashBoard label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.dashBoard select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  /* เพิ่มระยะห่างด้านล่าง */
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.dashBoard .chart-container {
+  display: flex;
+  flex-direction: column;
+  /* จัดเรียงในแนวตั้ง */
+  align-items: center;
+  /* จัดกลางกราฟ */
+  margin-bottom: 40px;
+  /* เพิ่มระยะห่างด้านล่างของกราฟ */
+}
+
+.dashBoard .chart-container canvas {
+  /*width: 100% !important;
+  height: 100% !important;
+  max-width: 500px;
+  max-height: 300px;
+  margin: 0 auto;*/
+}
+
+#barChartMessage,
+#pieChartMessage,
+#websiteBarChartMessage,
+#websitePieChartMessage {
+  text-align: center;
+  /* จัดข้อความให้อยู่กลาง */
+  font-weight: bold;
+  margin-top: 10px;
+  color: red;
+  /* เปลี่ยนสีข้อความเตือน */
+}
+
+/*dashBoard end*/
+
+/*editAcc start*/
+
+/* Form styling */
+/* Container styling */
+
+
+
+/* Form styling */
+.editAcc .form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+
+.editAcc input[type="text"],
+.editAcc input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #28a745;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.editAcc input:focus {
+  outline: none;
+  border-color: #1b5e20; /* Darker green when focused */
+  box-shadow: 0 0 5px rgba(33, 203, 72, 0.3);
+}
+
+/* Submit button styling */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-submit:hover {
+  background-color: #1b5e20; /* Darker green on hover */
+}
+
+/* Back button styling */
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #cccccc;
+  color: #333;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #b3b3b3; /* Darker grey on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 500px) {
+  #container-body.editAcc {
+      padding: 30px;
+  }
+
+  .btn-submit, .btn-secondary {
+      font-size: 16px;
+  }
+
+  .editAcc h1 {
+      font-size: 22px;
+  }
+}
+
+
+/*editAcc end*/
+
+/*index start*/
+
+.container .index {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f7f4;
+  /* สีเขียวอ่อน */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.index .block-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+
+/* Announcement styling */
+.announcement {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #c8e6c9;
+  /* สีเขียวอ่อน */
+  border-radius: 8px;
+  background-color: #ffffff;
+  /* สีขาว */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Heading for announcements */
+/*.index h1 {
+color: #2e7d32; 
+font-weight: bold;
+margin-bottom: 20px;
+}*/
+
+/* Announcement title */
+.announcement h5 {
+  color: #388e3c;
+  /* สีเขียวเข้ม */
+  font-weight: bold;
+  word-break: break-all;
+  padding: 20px 0px;
+}
+
+/* Comment section styling */
+.comment {
+  border: 1px solid #a5d6a7;
+  /* สีเขียวอ่อน */
+  background-color: #e8f5e9;
+  /* สีเขียวอ่อน */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* Comment header styling */
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Comment header date */
+.comment-header strong {
+  color: #388e3c;
+  /* สีเขียวเข้ม */
+}
+
+/* Buttons customization */
+.btn {
+  border-radius: 5px;
+}
+
+/* Primary button (Add announcement) */
+.btn-primary {
+  background-color: #66bb6a;
+  /* สีเขียวสด */
+  border-color: #66bb6a;
+}
+
+.btn-primary:hover {
+  background-color: #4caf50;
+  /* สีเขียวเข้มขึ้นเมื่อ hover */
+  border-color: #4caf50;
+}
+
+/* Warning button (Edit) */
+.btn-warning {
+  background-color: #ffca28;
+  /* สีเหลือง */
+  border-color: #ffca28;
+}
+
+/* Danger button (Delete) */
+.btn-danger {
+  background-color: #e57373;
+  /* สีแดงอ่อน */
+  border-color: #e57373;
+}
+
+/* Info button (Show comments) */
+.btn-info {
+  background-color: #4db6ac;
+  /* สีฟ้าเขียว */
+  border-color: #4db6ac;
+}
+
+/* Success button (Add comment) */
+.btn-success {
+  background-color: #81c784;
+  /* สีเขียวอ่อน */
+  border-color: #81c784;
+}
+
+/* Float right for buttons */
+.float-right {
+  float: right;
+}
+
+
+/*index end*/
+
+/*login start*/
+
+.container-body.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  /* ปรับขนาดให้พอดีกับหน้าจอ */
+  background-position: center;
+  /* จัดภาพให้อยู่ตรงกลาง */
+  background-repeat: no-repeat;
+  /* ไม่ให้ภาพซ้ำ */
+  background-color: white;
+  /* สีพื้นหลังขาว */
+  padding: 20px 0px 40px 0px;
+  overflow: hidden;
+  /* ปิดการเลื่อน */
+}
+
+
+.login-container,
+.register .form-container{
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  text-align: center;
+  border: 3px solid #28a745;
+  /* Subtle green border */
+}
+
+.login-container h2 {
+  color: #2e7d32;
+  /* Dark green heading */
+  margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #c8e6c9;
+  /* Light green border */
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: #2e7d32;
+  /* Dark green on focus */
+  outline: none;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2e7d32;
+  /* Dark green background */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background-color: #1b5e20;
+  /* Darker green on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+#message {
+  margin-top: 15px;
+  color: #ff3d00;
+  /* Red for error message */
+  font-size: 14px;
+}
+
+/*login end*/
+
+/*register start*/
+.container-body.register{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background-size: cover;
+/* ปรับขนาดให้พอดีกับหน้าจอ */
+background-position: center;
+/* จัดภาพให้อยู่ตรงกลาง */
+background-repeat: no-repeat;
+/* ไม่ให้ภาพซ้ำ */
+background-color: white;
+/* สีพื้นหลังขาว */
+padding: 20px 0px 40px 0px;
+overflow: hidden;
+/* ปิดการเลื่อน */
+}
+
+
+.register h1 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.register .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.register .form-group label {
+  display: block;
+  font-size: 18px;
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+
+.register .form-group select {
+  max-width: 400px;
+  width: 100%; /* ปรับขนาด input และ select ให้เต็ม 100% */
+  padding: 10px;
+  border: 2px solid #28a745 !important;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.register .form-group input{
+  max-width: 298px;
+  width: 100%; /* ปรับขนาด input และ select ให้เต็ม 100% */
+  padding: 10px;
+  border: 2px solid #28a745 !important;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.register .form-group input:focus,
+.register .form-group select:focus {
+  outline: none;
+  border-color: #2e7d32; /* สีเขียวเมื่อโฟกัส */
+}
+
+.register button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.register .register-button {
+  background-color: #2e7d32;
+  color: white;
+  margin-top: 10px;
+}
+
+.register .register-button:hover {
+  background-color: #1b5e20;
+}
+
+.register .back-button {
+  background-color: #ccc;
+  color: black;
+  margin-top: 10px;
+}
+
+.register .back-button:hover {
+  background-color: #bbb;
+}
+
+.register .message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: green;
+}
+
+.register .error {
+  color: red;
+}
+/*register end*/
+
+
+/*TaskDetail start*/
+
+.TaskDetail-block {
+  background-color: white;
+  max-width: 700px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*.TaskDetail h1 {
+color: #388e3c !important; 
+text-align: center;
+font-weight: 600 !important;
+margin-bottom: 40px !important;
+}*/
+.TaskDetail p {
+  font-size: 18px;
+  color: #444444;
+  /* Medium green for text */
+  margin-bottom: 10px;
+}
+
+.TaskDetail button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  cursor: pointer;
+  width: 30%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.TaskDetail button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+
+.TaskDetail #completeButton {
+  width: 40%;
+}
+
+.TaskDetail #backButton {
+  background: #ccc;
+  width: 40%;
+}
+
+.TaskDetail #backButton:hover {
+  background: #bbb;
+}
+
+.TaskDetail .button-action {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+  margin: 30px 0px;
+}
+
+/*TaskDetail end*/
+
+/*top-menu start*/
+/*top-menu end*/
+
+/*user-edit-profile start*/
+
+/*.user-edit-profile h1, .user-edit-profile h2 {
+color: #333;
+}*/
+.user-edit-profile .form-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+.user-edit-profile .form-group {
+  margin-bottom: 15px;
+}
+
+.user-edit-profile .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-edit-profile .form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 3px solid #28a745 !important;
+  border-radius: 5px;
+}
+
+.user-edit-profile .save-info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #119928;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-edit-profile .save-info:hover {
+  background-color: #0a5e18;
+  /* สีเมื่อชี้เมาส์ */
+}
+
+/*user-edit-profile end*/
+
+/*user-info start*/
+
+.container-body.user-infor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.user-infor h1 {
+  color: #28a745;
+  /* สีเขียว */
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.user-infor-block .container-body {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  /* พื้นหลังสีขาว */
+  padding: 30px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  /* เงาหนักขึ้น */
+  border-radius: 15px;
+  /* เพิ่ม border-radius */
+}
+
+.user-infor-block table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 10px;
+  /* เพิ่ม border-radius ให้กับตาราง */
+  overflow: hidden;
+  /* ป้องกันมุมที่โค้ง */
+}
+
+.user-infor-block th,
+.user-infor-block td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-infor-block th {
+  background-color: #28a745;
+  /* สีเขียวเข้ม */
+  color: white;
+  font-weight: bold;
+}
+
+.user-infor-block td {
+  background-color: #f8fdf8;
+  /* สีพื้นหลังแถวอ่อนเขียว */
+  color: #333;
+}
+
+.user-infor-block td span {
+  font-weight: 500;
+}
+
+.user-infor button {
+  background-color: #28a745;
+  /* สีปุ่มเขียว */
+  color: white;
+  border: none;
+  padding: 10px 60px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* ปุ่มกลมมน */
+  margin-top: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-infor button:hover {
+  background-color: #218838;
+  /* สีเข้มขึ้นเมื่อ hover */
+  transform: scale(1.05);
+  /* ขยายปุ่มเล็กน้อยเมื่อ hover */
+}
+
+.user-infor button.insert-info {
+  background-color: #ffffff;
+  /* ปุ่ม Insert ขาว */
+  color: #28a745;
+  border: 2px solid #28a745;
+  border-radius: 30px;
+}
+
+.user-infor button.insert-info:hover {
+  background-color: #e8f5e9;
+}
+
+.user-infor-block {
+  margin-top: 20px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.user-infor-block .logout a {
+  color: #28a745;
+  /* สีลิงก์เขียว */
+  text-decoration: none;
+}
+
+.user-infor-block .logout a:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container-body {
+    padding: 20px;
+  }
+
+  table th,
+  table td {
+    padding: 10px 15px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+
+
+/*user-info end*/

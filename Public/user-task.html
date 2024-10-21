@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>All Tasks</title>
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- เพิ่ม div สำหรับ navbar -->
+    <div id="navbar"></div>
+    <div class="container-body all-task">
+      <h1>รายการงานทั้งหมด</h1>
+
+      <div class="filter-section">
+        <div class="filter-item">
+          <label for="monthSelect">เลือกเดือน :</label>
+          <select id="monthSelect">
+            <option value="">ทั้งหมด</option>
+            <option value="1">มกราคม</option>
+            <option value="2">กุมภาพันธ์</option>
+            <option value="3">มีนาคม</option>
+            <option value="4">เมษายน</option>
+            <option value="5">พฤษภาคม</option>
+            <option value="6">มิถุนายน</option>
+            <option value="7">กรกฎาคม</option>
+            <option value="8">สิงหาคม</option>
+            <option value="9">กันยายน</option>
+            <option value="10">ตุลาคม</option>
+            <option value="11">พฤศจิกายน</option>
+            <option value="12">ธันวาคม</option>
+          </select>
+        </div>
+
+        <div class="filter-item" style="display: none">
+          <label for="internshipSelect">เลือกชื่อนักศึกษา :</label>
+          <select id="internshipSelect">
+            <option value="">ทั้งหมด</option>
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label for="statusSelect">สถานะงาน :</label>
+          <select id="statusSelect">
+            <option value="">ทั้งหมด</option>
+            <option value="complete">สำเร็จ</option>
+            <option value="incomplete">ยังไม่สำเร็จ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="taskButton_add">
+        <a
+          id="taskButton"
+          class="nav-link"
+          style="display: none"
+          href="add-task.html"
+          >เพิ่มงาน</a
+        >
+        <a id="deleteAllButton" class="nav-link" style="display: none" href="#"
+          >ลบทุกงาน</a
+        >
+      </div>
+
+      <div>
+        <span style="display: none">ผู้ใช้: <span id="username"></span></span>
+        <span style="display: none">บทบาท: <span id="role"></span></span>
+      </div>
+
+      <table id="tasksTable">
+        <thead>
+          <tr>
+            <th>ชื่อเว็บไซต์</th>
+            <th>นักศึกษา</th>
+            <th>งาน</th>
+            <th>ผู้ดูแล</th>
+            <th>วันที่เริ่มต้น</th>
+            <th>วันที่สำเร็จ</th>
+            <th>จัดการงาน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ข้อมูลงานจะถูกเพิ่มที่นี่ -->
+        </tbody>
+      </table>
+    </div>
+    <script src="navbar.js"></script>
+
+    <script>
+      const token = localStorage.getItem("token");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          alert("กรุณาเข้าสู่ระบบก่อน");
+          //window.location.href = "login.html";
+          return;
+        }
+
+        fetch(`${window.BASE_URL}/authen`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) {
+              alert("กรุณาเข้าสู่ระบบก่อน");
+              window.location.href = "login.html";
+            } else {
+              document.getElementById("username").textContent = data.username;
+              document.getElementById("role").textContent = data.role;
+
+              const payload = JSON.parse(atob(token.split(".")[1]));
+              window.payload = payload;
+
+              if (payload.role === "admin") {
+                document.getElementById("taskButton").style.display = "block";
+                document.getElementById("deleteAllButton").style.display =
+                  "block";
+              }
+
+              // ดึง nickname โดยใช้ user_id ที่ได้รับ
+              const userId = payload.id; // สมมติว่า payload.id คือ user_id
+              return fetch(`${window.BASE_URL}/get-Userid/${userId}`);
+            }
+          })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((userData) => {
+            const nickname = userData.nickname; // ดึง nickname จากผลลัพธ์
+
+            // ใช้ nickname เพื่อดึงข้อมูลงาน
+            return fetch(`${window.BASE_URL}/get-task/${nickname}`);
+          })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((tasks) => {
+            // เรียงลำดับข้อมูลตาม id
+            tasks.sort((a, b) => b.id - a.id); // เรียงลำดับจากใหม่ไปเก่า
+
+            const tasksTable = document
+              .getElementById("tasksTable")
+              .getElementsByTagName("tbody")[0];
+
+            tasks.forEach((task) => {
+              const row = tasksTable.insertRow();
+
+              // กำหนดพื้นหลังของแถวตามค่า complete
+              if (task.complete === null) {
+                row.style.backgroundColor = "white"; // งานยังไม่เส็ด
+              } else {
+                row.style.backgroundColor = "lightgreen"; // งานเสร็จ
+              }
+
+              row.insertCell(0).innerText = task.website_name;
+              row.insertCell(1).innerText = task.internship;
+              row.insertCell(2).innerText = task.status;
+              row.insertCell(3).innerText = task.staff;
+              row.insertCell(4).innerText = new Date(
+                task.start_date
+              ).toLocaleDateString("th-TH");
+              row.insertCell(5).innerText = task.complete
+                ? new Date(task.complete).toLocaleDateString("th-TH")
+                : "ยังไม่สำเร็จ"; // ตรวจสอบค่า complete
+
+              // เพิ่มปุ่ม Edit
+              const editCell = row.insertCell(6);
+              const editButton = document.createElement("button");
+              editButton.innerText = "เพิ่มเติม";
+              editButton.onclick = function () {
+                window.location.href = `TaskDetail.html?id=${task.id}`;
+              };
+              editCell.appendChild(editButton);
+
+              // เพิ่มปุ่ม Delete ถ้าผู้ใช้เป็น admin
+              if (window.payload.role === "admin") {
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "ลบ";
+                deleteButton.onclick = function () {
+                  if (confirm("คุณแน่ใจว่าต้องการลบงานนี้?")) {
+                    fetch(`${window.BASE_URL}/delete-task/${task.id}`, {
+                      method: "DELETE",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                      },
+                    })
+                      .then((response) => {
+                        if (!response.ok) {
+                          throw new Error("Network response was not ok");
+                        }
+                        alert("ลบงานสำเร็จ");
+                        window.location.reload(); // โหลดหน้าใหม่เพื่อแสดงผลที่อัปเดต
+                      })
+                      .catch((error) => {
+                        console.error("Error deleting task:", error);
+                      });
+                  }
+                };
+                editCell.appendChild(deleteButton);
+              }
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching tasks:", error);
+          });
+      });
+
+      // ฟังก์ชันกรองงานตามเดือน ชื่อนักศึกษา และสถานะ
+      function filterTasks() {
+        const selectedMonth = parseInt(
+          document.getElementById("monthSelect").value
+        );
+        const selectedInternship =
+          document.getElementById("internshipSelect").value;
+        const selectedStatus = document.getElementById("statusSelect").value;
+
+        const tasksTable = document
+          .getElementById("tasksTable")
+          .getElementsByTagName("tbody")[0];
+        const rows = tasksTable.getElementsByTagName("tr");
+
+        for (let row of rows) {
+          const startDateCell = row.cells[4]; // คอลัมน์วันที่เริ่มต้น
+          const internshipCell = row.cells[1]; // คอลัมน์ชื่อนักศึกษา
+          const completeCell = row.cells[5]; // คอลัมน์วันที่สำเร็จ
+
+          const startDateParts = startDateCell.innerText.split("/");
+          const startDate = new Date(
+            `${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`
+          );
+
+          const isMonthMatch =
+            !selectedMonth || startDate.getMonth() + 1 === selectedMonth;
+          const isInternshipMatch =
+            !selectedInternship ||
+            internshipCell.innerText === selectedInternship;
+          const isStatusMatch =
+            !selectedStatus ||
+            (selectedStatus === "complete" &&
+              completeCell.innerText !== "ยังไม่สำเร็จ") ||
+            (selectedStatus === "incomplete" &&
+              completeCell.innerText === "ยังไม่สำเร็จ");
+
+          // แสดงหรือซ่อนแถวตามการจับคู่ทั้งเดือน ชื่อนักศึกษา และสถานะ
+          if (isMonthMatch && isInternshipMatch && isStatusMatch) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        }
+      }
+
+      // เพิ่ม event listener ให้กับ dropdown ของเดือน
+      document
+        .getElementById("monthSelect")
+        .addEventListener("change", function () {
+          const selectedMonth = parseInt(this.value);
+          filterTasksByMonth(selectedMonth);
+        });
+
+      // เพิ่ม event listener ให้กับ dropdown ของ internship
+      document
+        .getElementById("internshipSelect")
+        .addEventListener("change", function () {
+          const selectedInternship = this.value;
+
+          const tasksTable = document
+            .getElementById("tasksTable")
+            .getElementsByTagName("tbody")[0];
+          const rows = tasksTable.getElementsByTagName("tr");
+
+          for (let row of rows) {
+            const internshipCell = row.cells[1]; // คอลัมน์ Internship
+            if (
+              selectedInternship &&
+              internshipCell.innerText !== selectedInternship
+            ) {
+              row.style.display = "none"; // ซ่อนแถว
+            } else {
+              row.style.display = ""; // แสดงแถว
+            }
+          }
+        });
+      document
+        .getElementById("deleteAllButton")
+        .addEventListener("click", function () {
+          // แสดงการแจ้งเตือนยืนยันกับผู้ใช้
+          const confirmation = confirm(
+            "คุณแน่ใจหรือไม่ว่าต้องการลบงานทั้งหมด?"
+          );
+
+          if (confirmation) {
+            // ถ้าผู้ใช้กดยืนยัน ให้ส่งคำขอไปยัง API
+            fetch(`${window.BASE_URL}/delete-all-tasks`, {
+              method: "DELETE",
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.message) {
+                  alert("ลบงานทั้งหมดสำเร็จ");
+                  window.location.reload();
+                  // สามารถเพิ่มโค้ดเพื่อรีเฟรชหรืออัปเดตหน้าหลังจากลบงานได้ที่นี่
+                } else {
+                  alert(
+                    "เกิดข้อผิดพลาด: " + (data.error || "ไม่สามารถลบงานได้")
+                  );
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("เกิดข้อผิดพลาดในการลบงาน");
+              });
+          }
+        });
+      document
+        .getElementById("monthSelect")
+        .addEventListener("change", filterTasks);
+      document
+        .getElementById("internshipSelect")
+        .addEventListener("change", filterTasks);
+      document
+        .getElementById("statusSelect")
+        .addEventListener("change", filterTasks);
+    </script>
+  </body>
+</html>
