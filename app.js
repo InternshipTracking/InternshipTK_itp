@@ -59,6 +59,10 @@ function verifyAdmin(req, res, next) {
     });
 }
 
+// start
+app.get('/', (req, res) => {
+    res.send('Hello'); 
+});
 
 
 //******* */
