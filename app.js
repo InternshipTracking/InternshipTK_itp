@@ -9,14 +9,9 @@ const secret = 'internship-login';
 const nodemailer = require('nodemailer');
 
 
-app.use(bodyParser.json());
 app.use(cors({
-    origin: '*', // หรือใช้ '*' เพื่ออนุญาตทุกโดเมน
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS','PUT'], // วิธีการที่อนุญาต
-    allowedHeaders: ['Content-Type', 'Authorization'], // หัวที่อนุญาต
+    origin: '*', // อนุญาตทุกโดเมน
 }));
-app.options('*', cors());
-
 
 // conn DB 
 const conn = mysql.createConnection({

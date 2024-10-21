@@ -1,4 +1,4 @@
-const BASE_URL = "https://internship-tk-itp.vercel.app/";
+const BASE_URL = "https://internship-tk-itp.vercel.app";
       window.BASE_URL = BASE_URL;
       // ดึง navbar.html และใส่ไว้ใน div id="navbar"
       fetch("top-menu.html")
