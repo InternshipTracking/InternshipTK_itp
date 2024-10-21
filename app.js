@@ -17,13 +17,12 @@ app.use(cors({
 }));
 app.options('*', cors());
 
-// const config = require('./config');
+
 // conn DB 
 const conn = mysql.createConnection({
     host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
     user: '3WvxbiagZim93GN.root',
-    // password: config.dbPassword, // ใช้รหัสผ่านจากไฟล์ config
-    password: 'tIHvSBHY3V5SnAAO',
+    password: process.env.DB_PASSWORD, // ใช้ Environment Variable จาก Vercel
     database: 'mycompany',
     port: 4000,
     ssl: {
@@ -36,7 +35,7 @@ app.listen(3333, function () {
     console.log('CORS-enabled web server listening on port 3333'); // แจ้งว่าเซิร์ฟเวอร์กำลังทำงาน
 });
 
-
+module.exports = app;
 
 // ฟังก์ชันตรวจสอบผู้ดูแลระบบ
 function verifyAdmin(req, res, next) {
