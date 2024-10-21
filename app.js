@@ -17,7 +17,7 @@ app.use(cors({
 const conn = mysql.createConnection({
     host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
     user: '3WvxbiagZim93GN.root',
-    password: process.env.DB_PASSWORD, // ใช้ Environment Variable จาก Vercel
+    password: tIHvSBHY3V5SnAAO,
     database: 'mycompany',
     port: 4000,
     ssl: {
