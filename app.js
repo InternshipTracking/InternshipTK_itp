@@ -64,11 +64,12 @@ app.get('/', (req, res) => {
 //USER//
 //******* */
 
-// Register
 app.post('/register', jsonParser, function (req, res, next) {
-    const validRoles = ['admin', 'user']; // รายการบทบาทที่ถูกต้อง
+    const validRoles = ['admin', 'user'];
+    console.log(req.body); // Log ข้อมูลที่ส่งเข้ามา
+
     if (!validRoles.includes(req.body.role)) {
-        return res.status(400).send('Invalid role'); // ถ้าบทบาทไม่ถูกต้องให้ส่งกลับ error
+        return res.status(400).send('Invalid role');
     }
 
     conn.execute(
@@ -76,13 +77,15 @@ app.post('/register', jsonParser, function (req, res, next) {
         [req.body.username, req.body.password, req.body.role],
         function(err, result, fields) {
             if (err) {
-                res.status(500).send('Database query failed: ' + err.message); // ถ้า query ไม่สำเร็จให้ส่งกลับ error
+                console.error('Database query failed: ' + err.message); // Log ข้อผิดพลาด
+                res.status(500).send('Database query failed: ' + err.message);
                 return;
             }
-            res.json({status:'INSERT OK :D'}); // ส่งกลับข้อความยืนยันการเพิ่มข้อมูล
+            res.json({status:'INSERT OK :D'});
         }
     );
 });
+
 
 
 
@@ -765,11 +768,16 @@ app.post('/add-announcement', (req, res) => {
         return res.status(400).json({ error: "Message is required" });
     }
 
+    // Query database
     conn.query('INSERT INTO announcements (message) VALUES (?)', [message], (err, result) => {
-        if (err) return res.status(500).send(err);
-        res.status(201).send({ id: result.insertId });
+        if (err) {
+            console.error("Database error:", err); // แสดงข้อผิดพลาดใน console
+            return res.status(500).json({ error: "Database error occurred", details: err.message });
+        }
+        res.status(201).json({ id: result.insertId, message: "Announcement added successfully" });
     });
 });
+
 
 // ดึงประกาศทั้งหมด
 app.get('/announcements', (req, res) => {
