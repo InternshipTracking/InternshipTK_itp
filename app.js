@@ -17,12 +17,13 @@ app.use(cors({
 }));
 app.options('*', cors());
 
-const config = require('./config');
+// const config = require('./config');
 // conn DB 
 const conn = mysql.createConnection({
     host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
     user: '3WvxbiagZim93GN.root',
-    password: config.dbPassword, // ใช้รหัสผ่านจากไฟล์ config
+    // password: config.dbPassword, // ใช้รหัสผ่านจากไฟล์ config
+    password: 'tIHvSBHY3V5SnAAO',
     database: 'mycompany',
     port: 4000,
     ssl: {
