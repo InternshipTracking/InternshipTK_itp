@@ -5,3 +5,5 @@ This project is focused on developing and deploying an Internship Tracking Syste
 -Frontend (HTML) Deployment: Deployed using GitHub Pages<br>
 <br><br>
 All deployments utilize GitHub for authentication and login.
+<br>
+link: https://internshiptracking.github.io/InternshipTK_itp/Public/login.html
