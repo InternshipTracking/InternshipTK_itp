@@ -1,5 +1,7 @@
-this project Internship Tracking for itopplus co. ltd
+This project is focused on developing and deploying an Internship Tracking System specifically for iTopPlus Co., Ltd.. The deployment includes the following components:<br>
+<br>
+-API Deployment: Hosted on Vercel<br>
+-Database Deployment: Managed through TiDB and accessed via DBeaver<br>
+-Frontend (HTML) Deployment: Deployed using GitHub Pages<br>
 <br><br>
--Deploy API by Vercel<br>
--Deploy DB by TiDB + DBeaver<br>
--Deploy HTML by Github
+All deployments utilize GitHub for authentication and login.
